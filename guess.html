@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GG</title>
+    <link rel="stylesheet" href="guess.css">
+    <embed src="" width="180" height="90" loop="false" autostart="false">
+</head>
+<body>
+
+    <!--Guess the number game
+    
+    - maskinen må lage et tilfeldig tall, 1-20? ✓
+    - brukeren må kunne skrive inn hvilket tall de gjetter ✓
+    - sende tallet inn (knapp) ✓
+    - når knappen trykkes må vi hente verdien fra feltet vi skriver tallet inn ✓
+    - finne ut om tallet var riktig, høyere eller lavere
+    - maskinen må kunne si om det er rett eller ikke
+
+    - mer fuksjonalitet?
+
+    - restart funksjon
+    - antall forsøk
+    - score
+    - begrense forsøk
+
+    -->
+
+    <h1>GuessGame</h1>
+        <h2 id="high_score">High Score: 0</h2>
+        <h2 id="real_true_score">score: 0</h2>
+        <h2 id="timer">Time: 0</h2>
+        <input type="number" id="guessfield" name="guessfield">
+        <button id="guessbutton">Guess</button>
+        <button id="restartbutton" value="restartbutton">Restart</button>
+        <p id="numberguesses"></p>
+        <p id="response"></p>
+
+    <script>
+
+        var EL_guessfield = document.querySelector('#guessfield');
+        var EL_guessbutton = document.querySelector('#guessbutton');
+        var EL_restartbutton = document.querySelector('#restartbutton');
+        var El_response = document.querySelector('#response');
+        var EL_numberguesses = document.querySelector('#numberguesses');
+        var EL_real_true_score = document.querySelector('#real_true_score');
+        var EL_timer = document.querySelector('#timer')
+        var EL_high_score = document.querySelector('#high_score')
+
+        var hemmelig_tall = Math.floor(Math.random() * 21);
+
+        var numberguesses = 0;
+        var high_score = 0;
+        var potential_high_score = 0;
+        var score = 0;
+        var max_score = 2000;
+        var true_score = 0;
+
+        var timescore = 0;
+        var max_timescore = 2000;
+        var true_timescore = 0;
+
+        var real_true_score = 0;
+
+        var can_guess = true
+        var guessing = false
+
+        var tidteller = 0;
+
+        console.log(hemmelig_tall)
+
+        function myTimer() {
+            if (can_guess == true) {
+            console.log('timer tick: ' + tidteller)
+            console.log('')
+            tidteller++
+            EL_timer.innerHTML = 'Time: ' + tidteller;
+
+            } else if (can_guess == false) {
+                
+            }
+        }
+
+        function guess(){ //funksjon som kjører når vi trykker på knappen
+            //hente tallet vi skrev inn
+            if (can_guess == true) {
+                
+                guessing = true
+
+                console.log('')
+                console.log(guessfield.value)
+                console.log(hemmelig_tall)
+                console.log('')
+
+                if ((EL_guessfield.value)==(hemmelig_tall)) {
+                    El_response.innerHTML = '<img src="rett.jpg" height="350" width="350">'
+                    
+                    max_score = 2000 + real_true_score // legger til lagret score med nye maks poeng summen
+                    score -= numberguesses * 100; //Lager score til et negativt tall som trekker fra ut i fra antall gjett
+                    true_score = score + max_score; // Trekker score fra max score
+
+                    max_timescore = 1000 // lager hvor mange poeng du maks kan få på tid
+                    timescore = tidteller * 25 // lager en score som skal trekkes fra tidspoengene
+                    true_timescore = max_timescore - timescore // trekker poengtrekket fra mexs tidspoeng
+
+                    potential_high_score = 2000 + score + true_timescore // legger sammen alle poengene du har fått denne runden
+
+                    real_true_score = true_score + true_timescore // legger sammen alle poengene dine
+
+                    EL_real_true_score.innerHTML = 'Score' + real_true_score;
+
+                    if (high_score < potential_high_score) {
+                        EL_high_score.innerHTML = 'High Score: ' + potential_high_score
+                        high_score = potential_high_score
+                        console.log(" New high score: " + potential_high_score)
+                    } else {
+                        console.log(' No new high score ' + potential_high_score)
+                    }
+
+                    console.log('Real true score: ' + real_true_score)
+                    console.log('True time score: ' + true_timescore)
+                    console.log('True score: ' + true_score)
+                    console.log('')
+                    can_guess = false
+
+                    
+
+                } else if ((guessfield.value)<(hemmelig_tall)) {
+                    El_response.innerHTML = '<img src="up.jpg" height="350" width="350">'
+                } else if ((guessfield.value)>(hemmelig_tall)) {
+                    El_response.innerHTML = '<img src="down.jpg" height="350" width="350">'
+                }
+
+                numberguesses += 1
+                EL_numberguesses.innerHTML = 'Number of guesses:' + numberguesses
+            } else if (can_guess == false) {
+                console.log(guessfield.value)
+            }
+        }
+
+        function restart(){
+            hemmelig_tall = Math.floor(Math.random() * 21);
+            numberguesses = 0;
+            EL_numberguesses.innerHTML = "";
+
+            tidteller = 0
+
+            EL_timer.innerHTML = 'Time: 0'
+
+            can_guess = true
+
+            guessing = false
+
+            El_response.innerHTML = '';
+        }
+
+        EL_guessbutton.addEventListener('click',guess);
+        EL_restartbutton.addEventListener('click',restart)
+
+        var tidteller = 0;
+
+        function myTimer() {
+            if (can_guess == true && guessing == true)  {
+            console.log('timer tick: ' + tidteller)
+            tidteller++
+            EL_timer.innerHTML = 'Time: ' + tidteller;
+
+            } else if (can_guess == false) {
+                
+            }
+        }
+
+        setInterval(myTimer, 1000) //kjører funksjonen my timer hvert sekund
+        
+    </script>
+
+</body>
+</html>

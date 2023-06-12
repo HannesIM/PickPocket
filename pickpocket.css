@@ -1,0 +1,169 @@
+body {
+    background-image: url(bg.jpg);
+    background-size: cover;
+
+}
+
+.walletandlogo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 10%;
+    left: 40%;
+}
+
+.wallet {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+
+.poeng {
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+.upgrades {
+    display: flex;
+    flex-direction: column;
+    background-color: #d8ba0e;
+    text-align: center;
+    align-items: center;
+    border-style: outset;
+    width: 320px;
+    margin-top: 5%;
+    margin-left: 5%;
+    
+}
+
+.claw {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(178, 34, 34, 0.700);
+    text-align: center;
+    align-items: center;
+    border-style: outset;
+    width: 320px;
+    margin-left: 5%;
+}
+
+.rod {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(160, 226, 60, 0.7);
+    text-align: center;
+    align-items: center;
+    border-style: outset;
+    width: 320px;
+    margin-left: 5%;
+}
+
+.arms {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(171, 177, 164, 0.7);
+    text-align: center;
+    align-items: center;
+    border-style: outset;
+    width: 320px;
+    height: 146.812px;
+    margin-left: 5%;
+}
+
+.gun {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(148, 252, 243, 0.7);
+    text-align: center;
+    align-items: center;
+    border-style: outset;
+    width: 320px;
+    height: 146.812px;
+    margin-left: 5%;
+}
+
+
+.upgradepicture {
+    padding: 10px;
+    position: absolute;
+    top: 10;
+    left: 0;
+    width: 175px;
+    height: 80px;
+    margin-left: 5%;
+}
+
+.upgradetext {
+    padding: 10px;
+    position: relative;
+    padding-left: 60px;
+}
+
+.howmanyupgrade {
+    margin: 0px;
+    padding: 0px;
+    font-size: 120px;
+    padding-left: 60px;
+}
+
+.henchmen {
+    display: flex;
+    flex-direction: column;
+    background-color: #d8ba0e;
+    text-align: center;
+    align-items: center;
+    border-style: outset;
+    width: 320px;
+    position: absolute;
+    top: 9.5%;
+    right: 5%;
+        
+}
+
+.racoon {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(148, 252, 243, 0.7);
+    text-align: center;
+    align-items: center;
+    border-style: outset;
+    width: 320px;
+    height: 146.812px;
+    position: absolute;
+    top: 16.05%;
+    right: 5%;
+}
+
+.henchmanepicture {
+    padding: 10px;
+    position: absolute;
+    top: 10;
+    left: 0;
+    width: 175px;
+    height: 80px;
+    margin-left: 5%;
+}
+
+.henchmantext {
+    padding: 10px;
+    position: relative;
+    padding-left: 60px;
+}
+
+.howmanyhenchmen {
+    margin: 0px;
+    padding: 0px;
+    font-size: 120px;
+    padding-left: 60px;
+}
+
+.milestones {
+    display: flex;
+    flex-direction: column;
+}

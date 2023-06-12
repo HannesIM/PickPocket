@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Overskriften(kul)</h1>
+    <h3 id="mitt_tall"></h3>
+    <p id="førstetekstid">kul tekst</p>
+    <p class="førstetekstclass">kulere kul kul tekst</p>
+
+    <button id="button"><img src="hmm.jpg"></button>
+    
+    <script>
+
+        var EL_førstetekstid = document.querySelector('#førstetekstid')
+        var EL_tall = document.querySelector('#mitt_tall')
+        var EL_button = document.querySelector('#button')
+
+        tall = Math.floor(Math.random() * 10);
+
+        // lag fuksjon
+        function skriv_tekst(){
+            console.log(tall);
+            tall += Math.random();
+            var tall = Math.floor(Math.random() * 10);
+            if (tall > 5) {
+                EL_førstetekstid.innerHTML = 'Tallet er høyere enn 5';
+            } else if (tall <5) {
+                EL_førstetekstid.innerHTML = 'Tallet er lavere enn 5';
+            }
+            EL_tall.innerHTML = tall
+
+        }
+
+
+        
+        // velge button
+        EL_button.addEventListener('click', skriv_tekst );
+
+        //document.querySelectorAll
+        //document.getElementById
+        //document.getElementsByClassName
+
+        var tekst = "kul";
+
+        var hemmelig_passord = "Mitt_passord1";
+
+        document.write(tekst);
+
+        console.log("Dette er en console beskjed");
+
+
+
+    </script>
+
+</body>
+</html>

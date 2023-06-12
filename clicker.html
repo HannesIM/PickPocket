@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pick Pocket</title>
+    <link rel="stylesheet" href="clicker.css">
+</head>
+<body>
+
+    <!-- Clicker
+
+        design, skisse, kladd
+
+        knapp å trykke på, gi poeng
+
+        milestone(gir poeng når du har fått over en bestemt sum for første gang)
+        egene oppgraderinger for milestonepoeng
+        milestones kosmetiske endringer
+
+        upgrade {
+            trekker fra en bestemt sum fra poengene dine og gir deg noe nyttig, mer poeng per klikk, autoklikk.
+        }
+
+        Critical click (klikk kan tilfeldig gi mere poeng, (kjøpe oppgradering?))
+
+    -->
+
+    <img>
+
+    <div class="upgrades">
+        <h1>Upgrades</h1>
+
+    </div>
+        
+    <div id="claw" class="claw">
+        <h1 class="howmanyupgrade" id="howmanyclaw">0</h1>
+        <img class="upgradepicture" id="clawpicture" src="claw_black.png">
+        <h2 class="upgradetext" id="clawprice">???<br>10 Wallets<br>???</h2>
+        
+    </div>
+
+    <div id="rod" class="rod">
+        <h1 class="howmanyupgrade" id="howmanyrod">0</h1>
+        <img class="upgradepicture" id="rodpicture" src="magnetrod_black.png">
+        <h2 class="upgradetext" id="rodprice">???<br>150 Wallets<br>???</h2>
+        
+    </div>
+
+    <div id="arms" class="arms">
+        <h1 class="howmanyupgrade" id="howmanyarms">0</h1>
+        <img class="upgradepicture" id="armspicture" src="roboticarms_black.png">
+        <h2 class="upgradetext" id="armsprice">???<br>1000 Wallets<br>???</h2>
+        
+    </div>
+
+    <div id="gun" class="gun">
+        <h1 class="howmanyupgrade" id="howmanygun">0</h1>
+        <img class="upgradepicture" id="gunpicture" src="physgun_black.png">
+        <h2 class="upgradetext" id="gunprice">???<br>5000 Wallets<br>???</h2>
+        
+    </div>
+
+    <div class="walletandlogo">
+        <img class="logo" src="logo2.png" width="600" height="170">
+        
+        <h2>Wallets:</h2>
+        <h1 id="poeng" class="poeng">  0</h1>
+            <div class="wallet"><img src='clickthis.png' width="450" height="375" id="wallet">
+            </div>
+        <h3 id="howmanywallet" class="howmanywallet">Click Power: 1</h3>
+        <h3 id="howmanywps" class="howmanywps">Wallets Per Second: 0</h3>
+    </div>
+
+
+
+        <div class="milestones">
+            <h1 id="milestonepoeng" class="milestonetext">Milestone Pionts: 0</h1>
+            <h2 id="milestones" class="milestonetext">Next Milestone: 100</h2>
+        </div>
+
+        <div class="goldwallet">
+            <h1 id="totalmilestonepoeng" class="totalmilestonetext">??? 0/25</h1>
+        </div>
+
+        <div class="henchmen">
+            <h1>Henchmen</h1>
+
+        </div>
+
+        <div id="racoon" class="racoon">
+            <h1 class="howmanyhenchmen" id="howmanyracoon">0</h1>
+            <img class="henchmanpicture" id="racoonpicture" src="racoon_black.png">
+            <h2 class="henchmantext" id="racoonprice">???<br>1 Milestone<br>???</h2>
+            
+        </div>
+
+        <div id="man" class="man">
+            <h1 class="howmanyhenchmen" id="howmanyman">0</h1>
+            <img class="henchmanpicture" id="manpicture" src="man_black.png">
+            <h2 class="henchmantext" id="manprice">???<br>3 Milestone<br>???</h2>
+            
+        </div>
+
+        <div id="robo" class="robo">
+            <h1 class="howmanyhenchmen" id="howmanyrobo">0</h1>
+            <img class="henchmanpicture" id="robopicture" src="roboman_black.png">
+            <h2 class="henchmantext" id="roboprice">???<br>6 Milestone<br>???</h2>
+            
+        </div>
+
+
+    </div>
+
+    <script>
+            var click_power
+            var antall_klikk
+            var howmanyclaw
+            var howmanyarms
+            var howmanygun
+            var howmanyman
+            var howmanyracoon
+            var howmanyrod
+            var howmanyrobo
+            var crit_power
+            var firstupgradeprice
+            var secondupgradeprice
+            var thirdupgradeprice
+            var fourthupgradeprice
+            var firsthenchmanprice
+            var secondhenchmanprice
+            var thridhenchmanprice
+            var milestone
+            var milestonepoeng
+            var totalmilestonepoeng
+            var wps
+
+
+
+        if (localStorage.fresh_save == null) {
+
+            localStorage.fresh_save = 1
+            localStorage.antall_klikk = 0
+            localStorage.click_power = 1
+            localStorage.howmanyclaw = 0
+            localStorage.howmanyarms = 0
+            localStorage.howmanygun = 0
+            localStorage.howmanyman = 0
+            localStorage.howmanyracoon = 0
+            localStorage.howmanyrod = 0
+            localStorage.howmanyrobo = 0
+            localStorage.crit_power = 0
+            localStorage.firstupgradeprice = 10
+            localStorage.secondupgradeprice = 150
+            localStorage.thirdupgradeprice = 1000
+            localStorage.fourthupgradeprice = 5000
+            localStorage.firsthenchmanprice = 1
+            localStorage.secondhenchmanprice = 3
+            localStorage.thridhenchmanprice = 6
+            localStorage.milestone = 100
+            localStorage.milestonepoeng = 0
+            localStorage.totalmilestonepoeng = 0
+            localStorage.wps = 0
+
+
+         
+          
+
+            load() 
+            console.log("localstorage was not set, starting at 0")
+        } else {
+           load() 
+        }
+
+        function save() {
+            localStorage.antall_klikk = antall_klikk
+            localStorage.click_power = click_power
+            localStorage.howmanyclaw = howmanyclaw
+            localStorage.howmanyarms = howmanyarms
+            localStorage.howmanygun = howmanygun
+            localStorage.howmanyman = howmanyman
+            localStorage.howmanyracoon = howmanyracoon
+            localStorage.howmanyrod = howmanyrod
+            localStorage.howmanyrobo = howmanyrobo
+            localStorage.crit_power = crit_power
+            localStorage.firstupgradeprice = firstupgradeprice
+            localStorage.secondupgradeprice = secondupgradeprice
+            localStorage.thirdupgradeprice = thirdupgradeprice
+            localStorage.fourthupgradeprice = fourthupgradeprice
+            localStorage.firsthenchmanprice = firsthenchmanprice
+            localStorage.secondhenchmanprice = secondhenchmanprice
+            localStorage.thridhenchmanprice = thirdupgradeprice
+            localStorage.milestone = milestone
+            localStorage.milestonepoeng = milestonepoeng
+            localStorage.totalmilestonepoeng = totalmilestonepoeng
+            localStorage.wps = wps
+
+            console.log("saved")
+
+        }
+        
+
+        function load() {
+  
+            antall_klikk = localStorage.antall_klikk
+            click_power = localStorage.click_power
+            howmanyclaw = localStorage.howmanyclaw
+            howmanyarms = localStorage.howmanyarms
+            howmanygun = localStorage.howmanygun
+            howmanyman = localStorage.howmanyman
+            howmanyracoon = localStorage.howmanyracoon
+            howmanyrod = localStorage.howmanyrod
+            crit_power = localStorage.crit_power
+            firstupgradeprice = localStorage.firstupgradeprice
+            secondupgradeprice = localStorage.secondupgradeprice
+            thirdupgradeprice = localStorage.thirdupgradeprice
+            fourthupgradeprice = localStorage.fourthupgradeprice
+            firsthenchmanprice = localStorage.firsthenchmanprice
+            secondhenchmanprice = localStorage.secondhenchmanprice
+            milestone = localStorage.milestone
+            milestonepoeng = localStorage.milestonepoeng
+            totalmilestonepoeng = localStorage.totalmilestonepoeng
+            wps = localStorage.wps
+
+            console.log("loaded")
+        }
+
+        
+
+        EL_wallet = document.querySelector('#wallet');
+        EL_poeng = document.querySelector('#poeng');
+        EL_howmanywallet = document.querySelector('#howmanywallet');
+        EL_howmanywps = document.querySelector('#howmanywps')
+
+        var antall_klikk = Number(localStorage.antall_klikk);
+        EL_poeng.innerHTML = antall_klikk
+
+
+        function press() {
+            crit = Math.floor(Math.random() * 50);
+            if (crit > 1) {
+                antall_klikk += click_power;
+                console.log(antall_klikk);
+                EL_poeng.innerHTML = Math.floor(antall_klikk);
+                EL_howmanywallet.innerHTML = "Click Power: " + Math.floor(click_power);
+            } else if (crit < 1) {
+                crit_power += click_power * 50
+                antall_klikk += crit_power;
+                console.log(antall_klikk);
+                EL_poeng.innerHTML = antall_klikk;
+                crit_power = 0
+            }
+        }
+
+        EL_wallet.addEventListener('click', press);
+
+        // oppgraderinger
+
+        //
+        EL_firstupgrade = document.querySelector('#claw')
+        EL_clawprice = document.querySelector('#clawprice')
+        EL_howmanyclaw = document.querySelector('#howmanyclaw')
+        EL_clawpicture = document.querySelector('#clawpicture')
+
+
+        function upgrade1() {
+            if (antall_klikk >= firstupgradeprice) {
+                antall_klikk -= firstupgradeprice;
+                click_power += 1;
+                EL_poeng.innerHTML = Math.floor(antall_klikk);
+                firstupgradeprice *= 2
+                EL_clawpicture.src = "claw_glow.png"
+                EL_clawprice.innerHTML = "Toy Claw<br>" + firstupgradeprice + " Wallets<br>+1 CP"
+                howmanyclaw += 1
+                EL_howmanyclaw.innerHTML = howmanyclaw
+            }
+
+        }
+
+        EL_firstupgrade.addEventListener('click', upgrade1)
+
+        //
+        EL_secondupgrade = document.querySelector('#rod')
+        EL_rodprice = document.querySelector('#rodprice')
+        EL_howmanyrod = document.querySelector('#howmanyrod')
+        EL_rodpicture = document.querySelector('#rodpicture')
+
+
+        function upgrade2() {
+            if (antall_klikk >= secondupgradeprice) {
+                antall_klikk -= secondupgradeprice;
+                click_power *= 1.20;
+                EL_poeng.innerHTML = Math.floor(antall_klikk);
+                secondupgradeprice *= 2
+                EL_rodpicture.src = "magnetrod_glow.png"
+                EL_rodprice.innerHTML = "Magnet Rod<br>" + secondupgradeprice + " Wallets<br>+20% CP"
+                howmanyrod += 1
+                EL_howmanyrod.innerHTML = howmanyrod
+            }
+
+        }
+
+        EL_secondupgrade.addEventListener('click', upgrade2)
+        
+       
+        EL_thirdupgrade = document.querySelector('#arms')
+        EL_armsprice = document.querySelector('#armsprice')
+        EL_howmanyarms = document.querySelector('#howmanyarms')
+        EL_armspicture = document.querySelector('#armspicture')
+
+
+
+        function upgrade3() {
+            if (antall_klikk >= thirdupgradeprice) {
+                antall_klikk -= thirdupgradeprice;
+                click_power += 5;
+                EL_poeng.innerHTML = Math.floor(antall_klikk);
+                thirdupgradeprice *= 2
+                EL_armspicture.src = "roboticarms_glow.png"
+                EL_armsprice.innerHTML = "Robotic Arms<br>" + thirdupgradeprice + " Wallets<br>+5 CP"
+                howmanyarms += 1
+                EL_howmanyarms.innerHTML = howmanyarms
+            }
+
+        }
+
+        EL_thirdupgrade.addEventListener('click', upgrade3)
+
+        //
+
+        EL_fourthupgrade = document.querySelector('#gun')
+        EL_gunprice = document.querySelector('#gunprice')
+        EL_howmanygun = document.querySelector('#howmanygun')
+        EL_gunpicture = document.querySelector('#gunpicture')
+
+
+        function upgrade4() {
+            if (antall_klikk >= fourthupgradeprice) {
+                antall_klikk -= fourthupgradeprice;
+                click_power *= 2;
+                EL_poeng.innerHTML = Math.floor(antall_klikk);
+                fourthupgradeprice *= 2
+                EL_gunpicture.src = "physgun_glow.png"
+                EL_gunprice.innerHTML = "Physgun<br>" + fourthupgradeprice + " Wallets<br>+100% CP"
+                howmanygun += 1
+                EL_howmanygun.innerHTML = howmanygun
+            }
+
+        }
+
+        EL_fourthupgrade.addEventListener('click', upgrade4)
+
+        // Henchmen
+
+
+        EL_firsthenchman = document.querySelector('#racoon')
+        EL_racoonprice = document.querySelector('#racoonprice')
+        EL_howmanyracoon = document.querySelector('#howmanyracoon')
+        EL_racoonpicture = document.querySelector('#racoonpicture')
+
+
+        function henchman1() {
+            if (milestonepoeng >= firsthenchmanprice) {
+                milestonepoeng -= firsthenchmanprice;
+                wps += 10;
+                EL_milestonepoeng.innerHTML = "Milestone Points: " + milestonepoeng;
+                firsthenchmanprice += 1
+                EL_racoonpicture.src = "racoon_glow.png"
+                EL_racoonprice.innerHTML = "Racoon<br>" + firsthenchmanprice + " Milestones <br>+10 WPS"
+                howmanyracoon += 1
+                EL_howmanyracoon.innerHTML = howmanyracoon
+            }
+
+        }
+
+        EL_firsthenchman.addEventListener('click', henchman1)
+
+        //
+
+        EL_secondhenchman = document.querySelector('#man')
+        EL_manprice = document.querySelector('#manprice')
+        EL_howmanyman = document.querySelector('#howmanyman')
+        EL_manpicture = document.querySelector('#manpicture')
+
+
+        function henchman2() {
+            if (milestonepoeng >= secondhenchmanprice) {
+                milestonepoeng -= secondhenchmanprice;
+                wps += 100;
+                EL_milestonepoeng.innerHTML = "Milestone Points: " + milestonepoeng;
+                secondhenchmanprice += 3
+                EL_manpicture.src = "man_glow.png"
+                EL_manprice.innerHTML = "Man<br>" + secondhenchmanprice + " Milestones <br>+100 WPS"
+                howmanyman += 1
+                EL_howmanyman.innerHTML = howmanyman
+            }
+
+        }
+
+        EL_secondhenchman.addEventListener('click', henchman2)
+
+        EL_thirdhenchman = document.querySelector('#robo')
+        EL_roboprice = document.querySelector('#roboprice')
+        EL_howmanyrobo = document.querySelector('#howmanyrobo')
+        EL_robopicture = document.querySelector('#robopicture')
+
+
+        function henchman3() {
+            if (milestonepoeng >= thridhenchmanprice) {
+                milestonepoeng -= thridhenchmanprice;
+                wps *= 2;
+                EL_milestonepoeng.innerHTML = "Milestone Points: " + milestonepoeng;
+                thridhenchmanprice += 6
+                EL_robopicture.src = "roboman_glow.png"
+                EL_roboprice.innerHTML = "Robot<br>" + thridhenchmanprice + " Milestones <br>+100%"
+                howmanyrobo += 1
+                EL_howmanyrobo.innerHTML = howmanyrobo
+            }
+
+        }
+
+        EL_thirdhenchman.addEventListener('click', henchman3)
+
+
+        function WPS() {
+            antall_klikk += wps
+            EL_poeng.innerHTML = Math.floor(antall_klikk)
+            EL_howmanywps.innerHTML = "Wallets Per Second: " + wps
+        }
+        
+        var WPScounter = setInterval(WPS, 1000)
+
+        // milestones
+
+        EL_milestones = document.querySelector('#milestones')
+        EL_milestonepoeng = document.querySelector('#milestonepoeng')
+        EL_totalmilestonepoeng = document.querySelector('#totalmilestonepoeng')
+
+        var goldprize = 25
+
+        var rainbowprize = 50
+
+        function milestonesjekk() {
+            if (antall_klikk >= milestone) {
+                milestonepoeng += 1
+                totalmilestonepoeng += 1
+                milestone *= 1.5
+                EL_milestones.innerHTML = "Next Milestone: " + Math.floor(milestone)
+                EL_milestonepoeng.innerHTML = "Milestone Points: " + milestonepoeng
+                EL_totalmilestonepoeng.innerHTML = "Gold " + totalmilestonepoeng + "/" + goldprize
+            }
+
+            if (totalmilestonepoeng == goldprize) {
+                EL_wallet.src = "clickthis_glow.png"
+                wps *= 2
+                click_power *= 2
+            } if (totalmilestonepoeng > goldprize && totalmilestonepoeng <= rainbowprize) {
+                EL_totalmilestonepoeng.innerHTML = "Rainbow " + totalmilestonepoeng + "/" + rainbowprize
+            } if (totalmilestonepoeng == rainbowprize) {
+                EL_wallet.src = "clickthis_rainbow.png"
+                wps *= 2
+                click_power *= 2
+            } else if (totalmilestonepoeng >= rainbowprize) {
+                EL_totalmilestonepoeng.innerHTML = "Last Upgrade Reached"
+            }
+
+        }
+
+        var oppdatering = setInterval(milestonesjekk, 1000)
+
+        //clearTimeout(timer) stopper timer
+        function myTimeout() {
+            console.log("timer done")
+        }
+
+        function button_click() {
+            var timer = setTimeout(myTimeout, 5000)
+        }
+
+        setInterval(save,1000)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+body {
+    background-image: url(bg.jpg);
+    background-size: cover;
+
+}
+
+.walletandlogo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 10%;
+    left: 37.5%;
+}
+
+.wallet:active {
+    transform: scale(1.1);
+}
+
+.wallet {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+.howmanywps {
+    margin-top: 0;
+}
+
+.poeng {
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+.upgrades {
+    display: flex;
+    flex-direction: column;
+    background-color: #d8ba0e;
+    text-align: center;
+    align-items: center;
+    border-style: outset;
+    width: 320px;
+    margin-top: 3.5%;
+    margin-left: 5%;
+    
+}
+
+.claw {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(178, 34, 34, 0.700);
+    text-align: center;
+    align-items: center;
+    border-style: outset;
+    width: 320px;
+    margin-left: 5%;
+}
+
+.rod {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(160, 226, 60, 0.7);
+    text-align: center;
+    align-items: center;
+    border-style: outset;
+    width: 320px;
+    margin-left: 5%;
+}
+
+.arms {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(171, 177, 164, 0.7);
+    text-align: center;
+    align-items: center;
+    border-style: outset;
+    width: 320px;
+    height: 146.812px;
+    margin-left: 5%;
+}
+
+.gun {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(148, 252, 243, 0.7);
+    text-align: center;
+    align-items: center;
+    border-style: outset;
+    width: 320px;
+    height: 146.812px;
+    margin-left: 5%;
+}
+
+
+.upgradepicture {
+    padding: 10px;
+    position: absolute;
+    top: 10;
+    left: 0;
+    width: 175px;
+    height: 80px;
+    margin-left: 5%;
+    opacity: 0.8;
+}
+
+.upgradetext {
+    padding: 10px;
+    position: relative;
+    padding-left: 60px;
+}
+
+.howmanyupgrade {
+    margin: 0px;
+    padding: 0px;
+    font-size: 120px;
+    padding-left: 60px;
+}
+
+.henchmen {
+    display: flex;
+    flex-direction: column;
+    background-color: #d8ba0e;
+    text-align: center;
+    align-items: center;
+    border-style: outset;
+    width: 320px;
+    position: absolute;
+    top: 9.55%;
+    right: 5%;
+        
+}
+
+.racoon {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(199, 140, 74, 0.7);
+    text-align: center;
+    align-items: center;
+    border-style: outset;
+    width: 320px;
+    height: 146.812px;
+    position: absolute;
+    top: 16.05%;
+    right: 5%;
+}
+
+.man {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(236, 215, 190, 0.7);
+    text-align: center;
+    align-items: center;
+    border-style: outset;
+    width: 320px;
+    height: 146.812px;
+    position: absolute;
+    top: 27.6%;
+    right: 5%;
+
+}
+
+.robo {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(173, 216, 230, 0.7);
+    text-align: center;
+    align-items: center;
+    border-style: outset;
+    width: 320px;
+    height: 146.812px;
+    position: absolute;
+    top: 39.15%;
+    right: 5%;
+
+}
+
+.henchmanpicture {
+    padding: 10px;
+    position: absolute;
+    top: 10;
+    left: 0;
+    width: 175px;
+    height: 70px;
+    margin-left: 5%;
+    opacity: 0.8;
+}
+
+.henchmantext {
+    padding: 10px;
+    position: relative;
+    padding-left: 60px;
+}
+
+.howmanyhenchmen {
+    margin: 0px;
+    padding: 0px;
+    font-size: 120px;
+    padding-left: 60px;
+}
+
+.milestones {
+    display: flex;
+    flex-direction: column;
+    border-style: outset;
+    width: 320px;
+    text-align: center;
+    align-items: center;
+    background-color: #d8ba0e;
+    position: absolute;
+    bottom: 7%;
+    left: 43.5%;
+}
+
+.milestonetext {
+    padding: 5px;
+    margin: 5px;
+}
+
+.goldwallet {
+    display: flex;
+    flex-direction: column;
+    border-style: outset;
+    width: 200px;
+    height: 53px;
+    text-align: center;
+    align-items: center;
+    background-color: #d8ba0e;
+    position: absolute;
+    bottom: 2.5%;
+    left: 46%;
+}
+
+.totalmilestonetext {
+    padding: 5px;
+    margin: 5px;
+}
